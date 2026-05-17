@@ -1,291 +1,259 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2299.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4689cc; -webkit-text-stroke: #4689cc}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #c27e65; -webkit-text-stroke: #c27e65}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #8cd3fe; -webkit-text-stroke: #8cd3fe}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #a7c598; -webkit-text-stroke: #a7c598}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca; min-height: 16.0px}
-    span.s1 {font-kerning: none; background-color: #171818}
-    span.s2 {font-kerning: none; color: #8cd3fe; background-color: #171818; -webkit-text-stroke: 0px #8cd3fe}
-    span.s3 {font-kerning: none; color: #6d6d6d; background-color: #171818; -webkit-text-stroke: 0px #6d6d6d}
-    span.s4 {font-kerning: none; color: #4689cc; background-color: #171818; -webkit-text-stroke: 0px #4689cc}
-    span.s5 {font-kerning: none; color: #cacaca; background-color: #171818; -webkit-text-stroke: 0px #cacaca}
-    span.s6 {font-kerning: none; color: #c27e65; background-color: #171818; -webkit-text-stroke: 0px #c27e65}
-    span.s7 {font-kerning: none; color: #d4d4d4; background-color: #171818; -webkit-text-stroke: 0px #d4d4d4}
-    span.s8 {font-kerning: none; color: #71c083; background-color: #171818; -webkit-text-stroke: 0px #71c083}
-    span.s9 {font-kerning: none; color: #a7c598; background-color: #171818; -webkit-text-stroke: 0px #a7c598}
-    span.s10 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סימולטור פנסיה אינטראקטיבי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: #f8fafc;
+        }
+        .slider-thumb::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .card {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s4">html</span><span class="s5"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s1">"he"</span><span class="s5"> </span><span class="s2">dir</span><span class="s3">=</span><span class="s1">"rtl"</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">meta</span><span class="s5"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s6">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">meta</span><span class="s5"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s5"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">title</span><span class="s3">&gt;</span><span class="s1">סימולטור פנסיה אינטראקטיבי</span><span class="s3">&lt;/</span><span class="s4">title</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/react@18/umd/react.production.min.js"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/@babel/standalone/babel.min.js"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.jsdelivr.net/npm/chart.js"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">link</span><span class="s5"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&amp;display=swap"</span><span class="s5"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">body</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-family:</span><span class="s1"> </span><span class="s8">'Assistant'</span><span class="s7">,</span><span class="s1"> </span><span class="s6">sans-serif</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #f8fafc</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.slider-thumb::-webkit-slider-thumb</span><span class="s5"> </span><span class="s7">{</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s1">-webkit-appearance:</span><span class="s5"> </span><span class="s6">none</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">appearance:</span><span class="s1"> </span><span class="s6">none</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s9">20px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s9">20px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s1"> #3b82f6</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">cursor:</span><span class="s1"> </span><span class="s6">pointer</span><span class="s7">;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s1">border-radius:</span><span class="s5"> </span><span class="s9">50%</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">.card</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s2">box-shadow:</span><span class="s5"> </span><span class="s1">0</span><span class="s5"> </span><span class="s1">10px</span><span class="s5"> </span><span class="s1">25px</span><span class="s5"> </span><span class="s1">-5px</span><span class="s5"> </span><span class="s6">rgba(</span><span class="s1">0</span><span class="s7">,</span><span class="s5"> </span><span class="s1">0</span><span class="s7">,</span><span class="s5"> </span><span class="s1">0</span><span class="s7">,</span><span class="s5"> </span><span class="s1">0.1</span><span class="s6">)</span><span class="s7">,</span><span class="s5"> </span><span class="s1">0</span><span class="s5"> </span><span class="s1">8px</span><span class="s5"> </span><span class="s1">10px</span><span class="s5"> </span><span class="s1">-6px</span><span class="s5"> </span><span class="s6">rgba(</span><span class="s1">0</span><span class="s7">,</span><span class="s5"> </span><span class="s1">0</span><span class="s7">,</span><span class="s5"> </span><span class="s1">0</span><span class="s7">,</span><span class="s5"> </span><span class="s1">0.1</span><span class="s6">)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"root"</span><span class="s3">&gt;&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"text/babel"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const { useState, useEffect, useRef } = React;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>function PensionSimulator() {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const [salary, setSalary] = useState(15000);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const [contribution, setContribution] = useState(18);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const [years, setYears] = useState(35);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const [annualYield, setAnnualYield] = useState(5);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const [conversionFactor, setConversionFactor] = useState(200); // פרמטר חדש</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const chartRef = useRef(null);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const chartInstance = useRef(null);</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const calculateData = () =&gt; {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const guaranteedYield = 5.15;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const monthlyRateMarket = Math.pow(1 + annualYield / 100, 1 / 12) - 1;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const monthlyRateGuaranteed = Math.pow(1 + guaranteedYield / 100, 1 / 12) - 1;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const totalMonthlyDeposit = salary * (contribution / 100);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const depositMarket = totalMonthlyDeposit * 0.70;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const depositGuaranteed = totalMonthlyDeposit * 0.30;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const totalMonths = years * 12;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>let balanceMarket = 0;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>let balanceGuaranteed = 0;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>let totalInvested = 0;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const dataPointsTotal = [];</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const dataPointsMarket = [];</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const dataPointsGuaranteed = [];</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const labels = [];</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = 0; i &lt;= totalMonths; i++) {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>if (i % 12 === 0) {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>labels.push(`שנה ${i / 12}`);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>dataPointsTotal.push(Math.round(balanceMarket + balanceGuaranteed));</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>dataPointsMarket.push(Math.round(balanceMarket));</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>dataPointsGuaranteed.push(Math.round(balanceGuaranteed));</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>balanceMarket = (balanceMarket + depositMarket) * (1 + monthlyRateMarket);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>balanceGuaranteed = (balanceGuaranteed + depositGuaranteed) * (1 + monthlyRateGuaranteed);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>totalInvested += totalMonthlyDeposit;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const finalBalance = balanceMarket + balanceGuaranteed;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>return {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>labels,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>dataPointsTotal,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>dataPointsMarket,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>dataPointsGuaranteed,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>finalBalance,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>totalInvested,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>totalProfit: finalBalance - totalInvested,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>monthlyPension: finalBalance / conversionFactor // השימוש במקדם הדינאמי</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>};</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const results = calculateData();</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>useEffect(() =&gt; {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>const ctx = chartRef.current.getContext('2d');</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>if (chartInstance.current) {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>chartInstance.current.destroy();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>chartInstance.current = new Chart(ctx, {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>type: 'line',</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>data: {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>labels: results.labels,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>datasets: [</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>label: 'שוק ההון (70%)',</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>data: results.dataPointsMarket,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>borderColor: '#3b82f6',</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>backgroundColor: 'rgba(59, 130, 246, 0.5)',</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>fill: true,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>tension: 0.4,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>pointRadius: 0</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>label: 'הבטחת תשואה 5.15% (30%)',</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>data: results.dataPointsGuaranteed,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>borderColor: '#10b981',</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>backgroundColor: 'rgba(16, 185, 129, 0.5)',</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>fill: true,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>tension: 0.4,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>pointRadius: 0</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>]</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>options: {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>responsive: true,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>maintainAspectRatio: false,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>plugins: {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>legend: { display: true, position: 'bottom' },</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>tooltip: {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>mode: 'index',</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>intersect: false,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>callbacks: {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>label: function(context) {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>let label = context.dataset.label || '';</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>if (label) {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>label += ': ';</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>if (context.parsed.y !== null) {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                            </span>label += new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS', maximumFractionDigits: 0 }).format(context.parsed.y);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span>return label;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>interaction: {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>mode: 'index',</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>intersect: false,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>scales: {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>y: {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>stacked: true,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>beginAtZero: true,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>ticks: {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>callback: (value) =&gt; '₪' + (value / 1000000).toFixed(1) + 'M'</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>}, [salary, contribution, years, annualYield]); // עדכון הגרף קורה רק כשמשנים פרמטרים שמשפיעים על הצבירה</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>const formatMoney = (num) =&gt; new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS', maximumFractionDigits: 0 }).format(num);</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>return (</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div className="max-w-5xl mx-auto p-4 md:p-8"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;header className="mb-6 text-center"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;h1 className="text-4xl font-bold text-gray-800 mb-2"&gt;סימולטור הפרישה האינטראקטיבי&lt;/h1&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p className="text-gray-600"&gt;שחקו עם הפרמטרים כדי לראות את כוחה של הריבית דריבית&lt;/p&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/header&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div className="bg-blue-50 border-r-4 border-blue-500 p-4 rounded-lg mb-8 max-w-3xl mx-auto"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p className="text-sm text-blue-800 text-center"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;strong&gt;המודל הישראלי:&lt;/strong&gt; הסימולציה מפרידה בין 30% מהכסף שזוכה להבטחת תשואה קבועה (5.15%), לבין 70% שמושקע בשוק ההון.</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div className="grid grid-cols-1 lg:grid-cols-3 gap-8"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>{/* Controls */}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div className="lg:col-span-1 bg-white p-6 rounded-2xl card space-y-7"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;label className="flex justify-between text-sm font-semibold text-gray-700 mb-2"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;span&gt;שכר חודשי (ברוטו)&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;span className="text-blue-600"&gt;{formatMoney(salary)}&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/label&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;input type="range" min="5000" max="50000" step="500" value={salary} onChange={(e) =&gt; setSalary(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-thumb" /&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;label className="flex justify-between text-sm font-semibold text-gray-700 mb-2"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;span&gt;שיעור הפרשה (%)&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;span className="text-blue-600"&gt;{contribution}%&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/label&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;input type="range" min="10" max="25" step="0.5" value={contribution} onChange={(e) =&gt; setContribution(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-thumb" /&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;label className="flex justify-between text-sm font-semibold text-gray-700 mb-2"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;span&gt;משך הפרשה (שנים)&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;span className="text-blue-600"&gt;{years} שנים&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/label&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;input type="range" min="10" max="50" step="1" value={years} onChange={(e) =&gt; setYears(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-thumb" /&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;label className="flex justify-between text-sm font-semibold text-gray-700 mb-2"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;span&gt;תשואת שוק שנתית (על 70%)&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;span className="text-blue-600"&gt;{annualYield}%&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/label&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;input type="range" min="1" max="15" step="0.1" value={annualYield} onChange={(e) =&gt; setAnnualYield(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-thumb" /&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="pt-4 border-t border-gray-200"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;label className="flex justify-between text-sm font-semibold text-gray-700 mb-2"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;span&gt;מקדם המרה פנסיוני&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;span className="text-emerald-600"&gt;{conversionFactor}&lt;/span&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/label&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;input type="range" min="150" max="250" step="1" value={conversionFactor} onChange={(e) =&gt; setConversionFactor(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-thumb" style={{background: '#e5e7eb'}} /&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p className="text-xs text-gray-500 mt-1"&gt;משפיע ישירות על הקצבה (ככל שהמקדם נמוך יותר, הקצבה תהיה גבוהה יותר)&lt;/p&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>{/* Visualization &amp; Results */}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div className="lg:col-span-2 space-y-6"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="grid grid-cols-1 md:grid-cols-3 gap-4"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="bg-blue-600 p-4 rounded-xl text-white shadow-lg"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;p className="text-xs opacity-80 mb-1"&gt;סכום צבור בפרישה&lt;/p&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;p className="text-2xl font-bold"&gt;{formatMoney(results.finalBalance)}&lt;/p&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="bg-emerald-500 p-4 rounded-xl text-white shadow-lg"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;p className="text-xs opacity-80 mb-1"&gt;קצבה חודשית משוערת&lt;/p&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;p className="text-2xl font-bold"&gt;{formatMoney(results.monthlyPension)}&lt;/p&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div className="bg-amber-500 p-4 rounded-xl text-white shadow-lg"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;p className="text-xs opacity-80 mb-1"&gt;מתוכם רווחי תשואה&lt;/p&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;p className="text-2xl font-bold"&gt;{formatMoney(results.totalProfit)}&lt;/p&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="bg-white p-6 rounded-2xl card h-80"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;canvas ref={chartRef}&gt;&lt;/canvas&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div className="bg-gray-100 p-4 rounded-xl text-sm text-gray-600 italic text-center"&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span>* הסימולציה אינה כוללת דמי ניהול ומיסוי ונועדה להמחשה בלבד.</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>const root = ReactDOM.createRoot(document.getElementById('root'));</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>root.render(&lt;PensionSimulator /&gt;);</span></p>
-<p class="p1"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        function PensionSimulator() {
+            const [salary, setSalary] = useState(15000);
+            const [contribution, setContribution] = useState(18);
+            const [years, setYears] = useState(35);
+            const [annualYield, setAnnualYield] = useState(5);
+            const [conversionFactor, setConversionFactor] = useState(200);
+
+            const chartRef = useRef(null);
+            const chartInstance = useRef(null);
+
+            const calculateData = () => {
+                const guaranteedYield = 5.15;
+                const monthlyRateMarket = Math.pow(1 + annualYield / 100, 1 / 12) - 1;
+                const monthlyRateGuaranteed = Math.pow(1 + guaranteedYield / 100, 1 / 12) - 1;
+                
+                const totalMonthlyDeposit = salary * (contribution / 100);
+                const depositMarket = totalMonthlyDeposit * 0.70;
+                const depositGuaranteed = totalMonthlyDeposit * 0.30;
+                
+                const totalMonths = years * 12;
+                
+                let balanceMarket = 0;
+                let balanceGuaranteed = 0;
+                let totalInvested = 0;
+                
+                const dataPointsTotal = [];
+                const dataPointsMarket = [];
+                const dataPointsGuaranteed = [];
+                const labels = [];
+
+                for (let i = 0; i <= totalMonths; i++) {
+                    if (i % 12 === 0) {
+                        labels.push(`שנה ${i / 12}`);
+                        dataPointsTotal.push(Math.round(balanceMarket + balanceGuaranteed));
+                        dataPointsMarket.push(Math.round(balanceMarket));
+                        dataPointsGuaranteed.push(Math.round(balanceGuaranteed));
+                    }
+                    balanceMarket = (balanceMarket + depositMarket) * (1 + monthlyRateMarket);
+                    balanceGuaranteed = (balanceGuaranteed + depositGuaranteed) * (1 + monthlyRateGuaranteed);
+                    totalInvested += totalMonthlyDeposit;
+                }
+
+                const finalBalance = balanceMarket + balanceGuaranteed;
+
+                return {
+                    labels,
+                    dataPointsTotal,
+                    dataPointsMarket,
+                    dataPointsGuaranteed,
+                    finalBalance,
+                    totalInvested,
+                    totalProfit: finalBalance - totalInvested,
+                    monthlyPension: finalBalance / conversionFactor
+                };
+            };
+
+            const results = calculateData();
+
+            useEffect(() => {
+                const ctx = chartRef.current.getContext('2d');
+                
+                if (chartInstance.current) {
+                    chartInstance.current.destroy();
+                }
+
+                chartInstance.current = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: results.labels,
+                        datasets: [
+                            {
+                                label: 'שוק ההון (70%)',
+                                data: results.dataPointsMarket,
+                                borderColor: '#3b82f6',
+                                backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                                fill: true,
+                                tension: 0.4,
+                                pointRadius: 0
+                            },
+                            {
+                                label: 'הבטחת תשואה 5.15% (30%)',
+                                data: results.dataPointsGuaranteed,
+                                borderColor: '#10b981',
+                                backgroundColor: 'rgba(16, 185, 129, 0.5)',
+                                fill: true,
+                                tension: 0.4,
+                                pointRadius: 0
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: true, position: 'bottom' },
+                            tooltip: {
+                                mode: 'index',
+                                intersect: false,
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            label += new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS', maximumFractionDigits: 0 }).format(context.parsed.y);
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        interaction: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        scales: {
+                            y: {
+                                stacked: true,
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: (value) => '₪' + (value / 1000000).toFixed(1) + 'M'
+                                }
+                            }
+                        }
+                    }
+                });
+            }, [salary, contribution, years, annualYield]);
+
+            const formatMoney = (num) => new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS', maximumFractionDigits: 0 }).format(num);
+
+            return (
+                <div className="max-w-5xl mx-auto p-4 md:p-8">
+                    <header className="mb-6 text-center">
+                        <h1 className="text-4xl font-bold text-gray-800 mb-2">סימולטור הפרישה האינטראקטיבי</h1>
+                        <p className="text-gray-600">שחקו עם הפרמטרים כדי לראות את כוחה של הריבית דריבית</p>
+                    </header>
+                    
+                    <div className="bg-blue-50 border-r-4 border-blue-500 p-4 rounded-lg mb-8 max-w-3xl mx-auto">
+                        <p className="text-sm text-blue-800 text-center">
+                            <strong>המודל הישראלי:</strong> הסימולציה מפרידה בין 30% מהכסף שזוכה להבטחת תשואה קבועה (5.15%), לבין 70% שמושקע בשוק ההון.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div className="lg:col-span-1 bg-white p-6 rounded-2xl card space-y-7">
+                            <div>
+                                <label className="flex justify-between text-sm font-semibold text-gray-700 mb-2">
+                                    <span>שכר חודשי (ברוטו)</span>
+                                    <span className="text-blue-600">{formatMoney(salary)}</span>
+                                </label>
+                                <input type="range" min="5000" max="50000" step="500" value={salary} onChange={(e) => setSalary(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-thumb" />
+                            </div>
+
+                            <div>
+                                <label className="flex justify-between text-sm font-semibold text-gray-700 mb-2">
+                                    <span>שיעור הפרשה (%)</span>
+                                    <span className="text-blue-600">{contribution}%</span>
+                                </label>
+                                <input type="range" min="10" max="25" step="0.5" value={contribution} onChange={(e) => setContribution(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-thumb" />
+                            </div>
+
+                            <div>
+                                <label className="flex justify-between text-sm font-semibold text-gray-700 mb-2">
+                                    <span>משך הפרשה (שנים)</span>
+                                    <span className="text-blue-600">{years} שנים</span>
+                                </label>
+                                <input type="range" min="10" max="50" step="1" value={years} onChange={(e) => setYears(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-thumb" />
+                            </div>
+
+                            <div>
+                                <label className="flex justify-between text-sm font-semibold text-gray-700 mb-2">
+                                    <span>תשואת שוק שנתית (על 70%)</span>
+                                    <span className="text-blue-600">{annualYield}%</span>
+                                </label>
+                                <input type="range" min="1" max="15" step="0.1" value={annualYield} onChange={(e) => setAnnualYield(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-thumb" />
+                            </div>
+
+                            <div className="pt-4 border-t border-gray-200">
+                                <label className="flex justify-between text-sm font-semibold text-gray-700 mb-2">
+                                    <span>מקדם המרה פנסיוני</span>
+                                    <span className="text-emerald-600">{conversionFactor}</span>
+                                </label>
+                                <input type="range" min="150" max="250" step="1" value={conversionFactor} onChange={(e) => setConversionFactor(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-thumb" style={{background: '#e5e7eb'}} />
+                                <p className="text-xs text-gray-500 mt-1">משפיע ישירות על הקצבה (ככל שהמקדם נמוך יותר, הקצבה תהיה גבוהה יותר)</p>
+                            </div>
+                        </div>
+
+                        <div className="lg:col-span-2 space-y-6">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div className="bg-blue-600 p-4 rounded-xl text-white shadow-lg">
+                                    <p className="text-xs opacity-80 mb-1">סכום צבור בפרישה</p>
+                                    <p className="text-2xl font-bold">{formatMoney(results.finalBalance)}</p>
+                                </div>
+                                <div className="bg-emerald-500 p-4 rounded-xl text-white shadow-lg">
+                                    <p className="text-xs opacity-80 mb-1">קצבה חודשית משוערת</p>
+                                    <p className="text-2xl font-bold">{formatMoney(results.monthlyPension)}</p>
+                                </div>
+                                <div className="bg-amber-500 p-4 rounded-xl text-white shadow-lg">
+                                    <p className="text-xs opacity-80 mb-1">מתוכם רווחי תשואה</p>
+                                    <p className="text-2xl font-bold">{formatMoney(results.totalProfit)}</p>
+                                </div>
+                            </div>
+
+                            <div className="bg-white p-6 rounded-2xl card h-80">
+                                <canvas ref={chartRef}></canvas>
+                            </div>
+
+                            <div className="bg-gray-100 p-4 rounded-xl text-sm text-gray-600 italic text-center">
+                                * הסימולציה אינה כוללת דמי ניהול ומיסוי ונועדה להמחשה בלבד.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<PensionSimulator />);
+    </script>
 </body>
 </html>
